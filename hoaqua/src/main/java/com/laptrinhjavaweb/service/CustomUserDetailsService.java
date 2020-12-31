@@ -12,31 +12,39 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
-import com.laptrinhjavaweb.entity.Role;
-import com.laptrinhjavaweb.entity.User;
-import com.laptrinhjavaweb.repository.UserRepository;
+import com.laptrinhjavaweb.model.Quyen;
+import com.laptrinhjavaweb.model.TaiKhoan;
+import com.laptrinhjavaweb.model.ThongtinTaikhoan;
+import com.laptrinhjavaweb.repository.TaiKhoanRepository;
+import com.laptrinhjavaweb.repository.ThongtinTaiKhoanRepository;
 import com.laptrinhjavaweb.security.MyUser;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Autowired
-	private UserRepository userRepository;
+	private TaiKhoanRepository userRepository;
+	@Autowired
+	private ThongtinTaiKhoanRepository tttkRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User userEntity = userRepository.findOneByUserNameAndStatus(username, SystemConstant.ACTIVE_STATUS);
+	public UserDetails loadUserByUsername(String tendangnhap) throws UsernameNotFoundException {
+		TaiKhoan userEntity = userRepository.findOneByTendangnhapAndActive(tendangnhap, SystemConstant.ACTIVE_STATUS);
 		
 		if (userEntity == null) {
 			throw new UsernameNotFoundException("User not found");
 		}
 		List<GrantedAuthority> authorities = new ArrayList<>();
-		for (Role role: userEntity.getRoles()) {
-			authorities.add(new SimpleGrantedAuthority(role.getCode()));
+		for (Quyen role: userEntity.getQuyens()) {
+			authorities.add(new SimpleGrantedAuthority(role.getTenquyen()));
 		}
-		MyUser myUser = new MyUser(userEntity.getUserName(), userEntity.getPassword(), 
+		System.out.println(userEntity.getTendangnhap()+ " "+userEntity.getMatkhau());
+		MyUser myUser = new MyUser(userEntity.getTendangnhap(), userEntity.getMatkhau(), 
 							true, true, true, true, authorities);
-		myUser.setFullName(userEntity.getFullName());
+		ThongtinTaikhoan ttTaiKhoan = tttkRepository.findOne(userEntity.getId());
+		myUser.setFullName(ttTaiKhoan.getHoten());
+		System.out.println(myUser.getUsername()+ " "+myUser.getPassword());
+
 		return myUser;
 	}
 

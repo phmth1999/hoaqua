@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="<c:url value='${url}/css/owl.carousel.min.css'/>" type="text/css">
     <link rel="stylesheet" href="<c:url value='${url}/css/slicknav.min.css'/>" type="text/css">
     <link rel="stylesheet" href="<c:url value='${url}/css/style.css'/>" type="text/css">
+     <link rel="stylesheet" href="<c:url value='${url}/css/util.css'/>" type="text/css">
+      <link rel="stylesheet" href="<c:url value='${url}/css/main.css'/>" type="text/css">
 </head>
 
 <body>

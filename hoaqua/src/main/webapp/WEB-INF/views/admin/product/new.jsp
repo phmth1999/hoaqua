@@ -15,22 +15,34 @@
 						<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tên sản phẩm</label>
 								<div class="col-sm-9">
-									<form:input  path="name" cssClass="col-xs-10 col-sm-5" id="name" onkeyup="Ajaxf()"/>
+									<form:input  path="tensanpham" cssClass="col-xs-10 col-sm-5" id="tensanpham" onkeyup="Ajaxf()"/>
 									&nbsp; &nbsp; &nbsp;
 									<span id="nameMsg" style="font-size: 150%;color: red" ></span>
 								</div>
 								
 						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Giá</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">hinh anh</label>
 								<div class="col-sm-9">
-									<form:input path="price" cssClass="col-xs-10 col-sm-5"/>
+									<form:input path="hinhanh" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<div class="form-group">
-						  	<label for="shortDescription" class="col-sm-3 control-label no-padding-right">Mô tả ngắn:</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">so luong</label>
+								<div class="col-sm-9">
+									<form:input path="soluong" cssClass="col-xs-10 col-sm-5"/>
+								</div>
+						</div>
+						<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">gia</label>
+								<div class="col-sm-9">
+									<form:input path="gia" cssClass="col-xs-10 col-sm-5"/>
+								</div>
+						</div>
+						<div class="form-group">
+						  	<label for="shortDescription" class="col-sm-3 control-label no-padding-right">mieu ta</label>
 						  	<div class="col-sm-9">
-						  		<form:textarea path="shortDescription" rows="5" cols="10" cssClass="form-control" id="shortDescription"/>
+						  		<form:textarea path="mieuta" rows="5" cols="10" cssClass="form-control" id="shortDescription"/>
 						  	</div>
 						</div>
 						<div class="form-group">
@@ -56,18 +68,18 @@
 
 <script type="text/javascript">
 function Ajaxf() {
-$("#name").blur(function(){
-	var name1=$("#name").val();
+$("#tensanpham").blur(function(){
+	var name1=$("#tensanpham").val();
 	console.log(name1);
 	$.ajax({
 		url: "/hoaqua/quan-tri/san-pham/validateName",
 		type: "post",
-		data:"name="+name1,
+		data:"tensanpham="+name1,
 		dataType: "text",
 		success:function(result){
 			if(result=='Duplicate'){
 				$("#nameMsg").html("Tên sản phẩm đã tồn tại");
-				$("#name").focus();
+				$("#tensanpham").focus();
 				$("#btnNew").prop("disabled",true);
 			}else{
 				$("#nameMsg").html("");

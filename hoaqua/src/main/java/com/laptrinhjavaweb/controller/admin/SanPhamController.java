@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.laptrinhjavaweb.entity.Product;
+import com.laptrinhjavaweb.model.SanPham;
 import com.laptrinhjavaweb.service.ProductService;
 
 @Controller(value = "productControllerOfAdmin")
-public class ProductController {
+public class SanPhamController {
 	@Autowired
 	private ProductService productService;
 
 	@RequestMapping(value = "/quan-tri/san-pham/danh-sach", method = RequestMethod.GET)
 	public ModelAndView showList(HttpServletRequest request) {
-		List<Product> listProduct = productService.listAll();
+		List<SanPham> listProduct = productService.listAll();
 		PagedListHolder pagedListHolder = new PagedListHolder(listProduct);
 		int page = ServletRequestUtils.getIntParameter(request, "page", 0);
 		pagedListHolder.setPage(page);
@@ -38,14 +38,14 @@ public class ProductController {
 
 	@RequestMapping(value = "/quan-tri/san-pham/them-moi", method = RequestMethod.GET)
 	public ModelAndView newProduct() {
-		Product product = new Product();
+		SanPham product = new SanPham();
 		ModelAndView mav = new ModelAndView("admin/product/new");
 		mav.addObject("product", product);
 		return mav;
 	}
 
 	@RequestMapping(value = "/quan-tri/san-pham/luu", method = RequestMethod.POST)
-	public String saveCustomer(@ModelAttribute("product") Product product) {
+	public String saveCustomer(@ModelAttribute("product") SanPham product) {
 		productService.save(product);
 		return "redirect:/quan-tri/san-pham/danh-sach";
 	}
@@ -53,7 +53,7 @@ public class ProductController {
 	@RequestMapping(value = "/quan-tri/san-pham/chinh-sua", method = RequestMethod.GET)
 	public ModelAndView editCustomerForm(@RequestParam long id) {
 		ModelAndView mav = new ModelAndView("admin/product/edit");
-		Product product = productService.get(id);
+		SanPham product = productService.get(id);
 		mav.addObject("product", product);
 		return mav;
 	}
@@ -66,8 +66,8 @@ public class ProductController {
 
 	@RequestMapping(value="/quan-tri/san-pham/validateName",method = RequestMethod.POST)
 	public @ResponseBody String checkNameValidate(HttpServletRequest req,Model model){
-		String name=req.getParameter("name");
-		return productService.findByname(name);
+		String tensanpham=req.getParameter("tensanpham");
+		return productService.findByTensanpham(tensanpham);
 	}
 	@RequestMapping(value = "/quan-tri/san-pham/autocompletesearch", method = RequestMethod.GET)
 	@ResponseBody
@@ -79,7 +79,7 @@ public class ProductController {
 		if(keyword==""){
 			return "redirect:/quan-tri/san-pham/danh-sach";
 		}else{
-	    List<Product> result = productService.search(keyword);
+	    List<SanPham> result = productService.search(keyword);
 	    model.addAttribute("result", result);
 	 
 	    return "admin/product/search";    

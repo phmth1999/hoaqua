@@ -61,16 +61,23 @@
 													<tr>
 														<th><input type="checkbox" id="checkAll"></th>
 														<th>Tên sản phẩm</th>
-														<th>Mô tả ngắn</th>
+														<th>hinh anh</th>
+														<th>so luong</th>
+														<th>gia</th>
+														<th>mieu ta</th>
 														<th>Thao tác</th>
+
 													</tr>
 												</thead>
 												<tbody>
 													<c:forEach var="item" items="${result}">
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
-															<td>${item.name}</td>
-															<td>${item.shortDescription}</td>
+															<td>${item.tensanpham}</td>
+															<td>${item.hinhanh}</td>
+															<td>${item.soluong}</td>
+															<td>${item.gia}</td>
+															<td>${item.mieuta}</td>
 															<td>
 																<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
 																   title="Cập nhật bài viết" href="<c:url value='/quan-tri/san-pham/chinh-sua?id=${item.id}'/>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>

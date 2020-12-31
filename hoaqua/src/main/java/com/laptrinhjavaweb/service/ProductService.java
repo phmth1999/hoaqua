@@ -5,42 +5,42 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.laptrinhjavaweb.entity.Product;
-import com.laptrinhjavaweb.repository.ProductRepository;
+import com.laptrinhjavaweb.model.SanPham;
+import com.laptrinhjavaweb.repository.SanPhamRepository;
 
 @Service
 public class ProductService {
 	@Autowired
-	private ProductRepository productRepository;
+	private SanPhamRepository sanphamRepository;
 
-	public void save(Product product) {
-		productRepository.save(product);
+	public void save(SanPham sanpham) {
+		sanphamRepository.save(sanpham);
 	}
 
-	public List<Product> listAll() {
-		return (List<Product>) productRepository.findAll();
+	public List<SanPham> listAll() {
+		return (List<SanPham>) sanphamRepository.findAll();
 	}
 
-	public Product get(Long id) {
-		return productRepository.findOne(id);
+	public SanPham get(Long id) {
+		return sanphamRepository.findOne(id);
 	}
 
 	public void delete(Long id) {
-		productRepository.delete(id);
+		sanphamRepository.delete(id);
 	}
 
 	public int getTotalItem() {
-		return (int) productRepository.count();
+		return (int) sanphamRepository.count();
 	}
 
-	public String findByname(String name) {
-		Product entity = productRepository.findByname(name);
+	public String findByTensanpham(String tensanpham) {
+		SanPham entity = sanphamRepository.findByTensanpham(tensanpham);
 		return (entity == null) ? "Unique" : "Duplicate";
 	}
 	public List<String> autocompletesearch(String keyword) {
-		return productRepository.autocompletesearch(keyword);
+		return sanphamRepository.autocompletesearch(keyword);
 	}
-	public List<Product> search(String keyword) {
-		return productRepository.search(keyword);
+	public List<SanPham> search(String keyword) {
+		return sanphamRepository.search(keyword);
 	}
 }

@@ -20,19 +20,32 @@
 						<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tên sản phẩm</label>
 								<div class="col-sm-9">
-									<form:input path="name" cssClass="col-xs-10 col-sm-5"/>
+									<form:input path="tensanpham" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
+						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Giá</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">hinh anh</label>
 								<div class="col-sm-9">
-									<form:input path="price" cssClass="col-xs-10 col-sm-5"/>
+									<form:input path="hinhanh" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<div class="form-group">
-						  	<label for="shortDescription" class="col-sm-3 control-label no-padding-right">Mô tả ngắn:</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">so luong</label>
+								<div class="col-sm-9">
+									<form:input path="soluong" cssClass="col-xs-10 col-sm-5"/>
+								</div>
+						</div>
+						<div class="form-group">
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">gia</label>
+								<div class="col-sm-9">
+									<form:input path="gia" cssClass="col-xs-10 col-sm-5"/>
+								</div>
+						</div>
+						<div class="form-group">
+						  	<label for="shortDescription" class="col-sm-3 control-label no-padding-right">mieuta</label>
 						  	<div class="col-sm-9">
-						  		<form:textarea path="shortDescription" rows="5" cols="10" cssClass="form-control" id="shortDescription"/>
+						  		<form:textarea path="mieuta" rows="5" cols="10" cssClass="form-control" id="mieuta"/>
 						  	</div>
 						</div>
 						<div class="form-group">
