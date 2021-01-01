@@ -18,7 +18,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableJpaRepositories(basePackages = {"com.laptrinhjavaweb.repository"})
+@EnableJpaRepositories(basePackages = {"com.laptrinhjavaweb.dao"})
 @EnableTransactionManagement
 @EnableSpringDataWebSupport
 public class JPAConfig {

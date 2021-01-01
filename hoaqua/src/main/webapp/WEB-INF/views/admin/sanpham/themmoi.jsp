@@ -1,5 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@include file="/common/taglib.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@include file="/common/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Thêm sản phẩm</title>
@@ -19,30 +21,29 @@
 									&nbsp; &nbsp; &nbsp;
 									<span id="nameMsg" style="font-size: 150%;color: red" ></span>
 								</div>
-								
 						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">hinh anh</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Hình ảnh</label>
 								<div class="col-sm-9">
 									<form:input path="hinhanh" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">so luong</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Số lượng</label>
 								<div class="col-sm-9">
 									<form:input path="soluong" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">gia</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Giá</label>
 								<div class="col-sm-9">
 									<form:input path="gia" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<div class="form-group">
-						  	<label for="shortDescription" class="col-sm-3 control-label no-padding-right">mieu ta</label>
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Miêu tả</label>
 						  	<div class="col-sm-9">
-						  		<form:textarea path="mieuta" rows="5" cols="10" cssClass="form-control" id="shortDescription"/>
+						  		<form:textarea path="mieuta" rows="5" cols="10" cssClass="form-control" />
 						  	</div>
 						</div>
 						<div class="form-group">

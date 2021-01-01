@@ -1,4 +1,4 @@
-package com.laptrinhjavaweb.repository;
+package com.laptrinhjavaweb.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

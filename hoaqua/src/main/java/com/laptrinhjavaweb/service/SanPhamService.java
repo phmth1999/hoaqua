@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.laptrinhjavaweb.dao.SanPhamRepository;
 import com.laptrinhjavaweb.model.SanPham;
-import com.laptrinhjavaweb.repository.SanPhamRepository;
 
 @Service
-public class ProductService {
+public class SanPhamService {
 	@Autowired
 	private SanPhamRepository sanphamRepository;
 

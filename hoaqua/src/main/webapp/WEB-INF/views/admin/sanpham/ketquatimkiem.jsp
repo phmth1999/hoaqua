@@ -1,4 +1,3 @@
-<%@include file="/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@include file="/common/taglib.jsp"%>
@@ -24,7 +23,7 @@
 					<div align="center" style="margin-top: 10px;" >
 					<form  method="get" action="search">
                                             <input size="50" type="text" name="keyword" id="productName" />
-                                            <input style="height:30px; width:50px;" type="submit" value="Search" />
+                                            <input style="height:30px; width:50px;" type="submit" value="Search" />
                                             </form>
                     </div>
 					<div class="page-content">
@@ -61,12 +60,11 @@
 													<tr>
 														<th><input type="checkbox" id="checkAll"></th>
 														<th>Tên sản phẩm</th>
-														<th>hinh anh</th>
-														<th>so luong</th>
-														<th>gia</th>
-														<th>mieu ta</th>
+														<th>Hình ảnh</th>
+														<th>Số lượng</th>
+														<th>Giá</th>
+														<th>Miêu tả</th>
 														<th>Thao tác</th>
-
 													</tr>
 												</thead>
 												<tbody>

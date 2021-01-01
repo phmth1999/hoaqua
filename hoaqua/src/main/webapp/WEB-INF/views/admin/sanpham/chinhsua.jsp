@@ -1,5 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@include file="/common/taglib.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@include file="/common/taglib.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Chỉnh sửa sản phẩm</title>
@@ -12,46 +14,45 @@
 				<div class="col-xs-12">
 					<form:form action="luu" method="post" class="form-horizontal" role="form" id="formSubmit" modelAttribute="product">
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Id: ${product.id}</label>
 								<div class="col-sm-9">
-                                   <form:hidden path="id"/>
+									<form:hidden  path="id" cssClass="col-xs-10 col-sm-5" />
 								</div>
 						</div>
 						<div class="form-group">
 								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Tên sản phẩm</label>
 								<div class="col-sm-9">
-									<form:input path="tensanpham" cssClass="col-xs-10 col-sm-5"/>
+									<form:input  path="tensanpham" cssClass="col-xs-10 col-sm-5" />
 								</div>
 						</div>
-						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">hinh anh</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Hình ảnh</label>
 								<div class="col-sm-9">
 									<form:input path="hinhanh" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">so luong</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Số lượng</label>
 								<div class="col-sm-9">
 									<form:input path="soluong" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<div class="form-group">
-								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">gia</label>
+								<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Giá</label>
 								<div class="col-sm-9">
 									<form:input path="gia" cssClass="col-xs-10 col-sm-5"/>
 								</div>
 						</div>
 						<div class="form-group">
-						  	<label for="shortDescription" class="col-sm-3 control-label no-padding-right">mieuta</label>
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Miêu tả</label>
 						  	<div class="col-sm-9">
-						  		<form:textarea path="mieuta" rows="5" cols="10" cssClass="form-control" id="mieuta"/>
+						  		<form:textarea path="mieuta" rows="5" cols="10" cssClass="form-control" />
 						  	</div>
 						</div>
 						<div class="form-group">
 						<label  class="col-sm-3 control-label no-padding-right"></label>
 						  	<div class="col-sm-9">
-						  		<button class="btn btn-info" type="submit" id="btnAddOrUpdateNew">
+						  	<button class="btn btn-info" type="submit" >
 													<i class="ace-icon fa fa-check bigger-110"></i>
 													Cập nhật sản phẩm
 												</button>
